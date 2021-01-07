@@ -7,11 +7,8 @@ import { RegistrationPage } from "./RegistrationPage";
 import { OrderListPage } from "./OrderListPage";
 import { CheckPage } from "./CheckPage";
 
-export function App() {
-  
-  return (
-    <>
-      <ul>
+/*
+ <ul>
         <li>
           <Link to="/">Pizza Constructor</Link>
         </li>
@@ -28,7 +25,11 @@ export function App() {
           <Link to="/orderlist">OrderList</Link>
         </li>
       </ul>
+*/
 
+export function App() {
+  return (
+    <>
       <Switch>
         <Route exact path="/">
           <PizzaConfiguratorPage />
