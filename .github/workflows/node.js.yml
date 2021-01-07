@@ -31,5 +31,3 @@ jobs:
         npm install
         npm run build
         npm test
-      env: # В окружении устанавливаем CI в истину 
-        CI: true
