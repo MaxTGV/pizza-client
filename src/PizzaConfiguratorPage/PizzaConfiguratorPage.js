@@ -26,7 +26,7 @@ export const PizzaConfiguratorPage = () => {
 
   useEffect(() => {
     dispatch(fetchIngredients());
-  }, []);
+  }, [dispatch]);
 
   if (isLoading) {
     return <>Loading...</>;
