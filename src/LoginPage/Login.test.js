@@ -3,7 +3,6 @@ import { Login } from "./Login";
 import { fireEvent, render } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { act } from "react-dom/test-utils";
-import { Provider } from "react-redux";
 
 describe("Login", () => {
   it("renders correctly", () => {
