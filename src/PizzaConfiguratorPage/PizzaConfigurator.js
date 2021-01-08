@@ -278,7 +278,7 @@ export const PizzaConfigurator = ({ cheeses, vegs, meats, onPizzaCreated }) => {
           </StyledLongToppings>
         </StyledToppings>
         <BottomDiv>
-          <BaseButton>Заказать за {price}</BaseButton>
+          <BaseButton mt="1" mb="1">Заказать за {price}</BaseButton>
         </BottomDiv>
       </Form>
     </>
