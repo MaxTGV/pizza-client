@@ -3,9 +3,10 @@ import { Button } from "@material-ui/core";
 import styled from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    margin: theme.spacing(1, 0, 1),
+const useStyles = makeStyles(theme => ({
+  root: (props) => ({
+    marginTop: theme.spacing(props.mt),
+    marginBottom: theme.spacing(props.mb),
     backgroundColor: "rgba(0, 168, 150, 1)",
     borderRadius: 16,
     color: "white",
@@ -23,11 +24,11 @@ const useStyles = makeStyles((theme) => ({
       color: '#8181B1',
       opacity: 0.5
     },
-  },
+  }),
 }));
 
 export const BaseButton = forwardRef(({ children, ...props }, ref) => {
-  const styles = useStyles();
+  const styles = useStyles({...props});
 
   return (
     <Button
@@ -42,20 +43,3 @@ export const BaseButton = forwardRef(({ children, ...props }, ref) => {
     </Button>
   );
 });
-
-export const RegistrationButton = styled(BaseButton)`
-  margin-top: ${(props) => props.mt};
-  margin-bottom: 16px;
-  background-color: rgba(0, 168, 150, 1);
-  border-radius: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  font-family: "M PLUS Rounded  1C ExtraBold";
-  text-transform: none;
-  &:hover {
-    background-color: rgba(0, 168, 150, 1);
-    color: white;
-    box-shadow: 0 0 0 0.2rem;
-  }
-`;

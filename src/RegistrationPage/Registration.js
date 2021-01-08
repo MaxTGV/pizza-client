@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { setLogin } from "../LoginPage/state/actions";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { RegistrationButton } from "../shared/component/BaseButton";
+import { BaseButton } from "../shared/component/BaseButton";
 import { Navbar } from "../shared/component/Navbar";
 import { Form } from "../shared/component/Form";
 import { Input } from "../shared/component/Input";
@@ -74,7 +74,7 @@ export const Registration = () => {
             error={!!errors.password}
             helperText={errors?.password?.message}
           />
-          <RegistrationButton mt="16px">Зарегистрироваться</RegistrationButton>
+          <BaseButton mt="2" mb="2">Зарегистрироваться</BaseButton>
         </Form>
       </MainContainer>
     </>

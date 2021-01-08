@@ -8,7 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { MainContainer } from "../shared/component/MainContainer";
 import { Navbar } from "../shared/component/Navbar";
-import { BaseButton, RegistrationButton } from "../shared/component/BaseButton";
+import { BaseButton } from "../shared/component/BaseButton";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import arrowLeft from "../img/icn_arrow-left.png";
@@ -78,11 +78,11 @@ export const Login = () => {
             error={!!errors.password}
             helperText={errors?.password?.message}
           />
-          <BaseButton disabled={!disabled}>Войти</BaseButton>
+          <BaseButton mt="1" mb="1" disabled={!disabled}>Войти</BaseButton>
         </Form>
-        <RegistrationButton onClick={() => history.push("/registration")}>
+        <BaseButton mb="2" onClick={() => history.push("/registration")}>
           Регистрация
-        </RegistrationButton>
+        </BaseButton>
       </MainContainer>
     </>
   );
