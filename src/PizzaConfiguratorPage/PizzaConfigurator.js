@@ -6,7 +6,7 @@ import { BaseButton } from "../shared/component/BaseButton";
 import { Form } from "../shared/component/Form";
 import { StandartSet } from "./StandartSet";
 import { Toppings } from "./Toppings";
-import plate from "../img/Assets/plate.png";
+import plate from "../img/Assets/plate.svg";
 import { SIZE, DOUGH, SAUCE } from "../shared/pizzaData";
 
 const AssetsContainer = styled.div`
@@ -21,58 +21,74 @@ const AssetsContainer = styled.div`
 `;
 
 const Assets = styled.div`
-  width: 280px;
-  height: 280px;
+  width: 300px;
+  height: 275px;
+  transform: scale(0.9, 1);
   background: no-repeat center/100% url(${plate});
-  z-index: 1;
+  opacity: 1;
+  animation-name: visible-assets;
+  animation-duration: 3s;
 `;
 
 const AssetComponent = styled.div`
   position: absolute;
-  width: 260px;
+  width: 265px;
   height: 260px;
+  transform: scale(1.1, ${(props) => (props.dough === "lush" ? "1.1" : "1")});
   background: no-repeat
-    ${(props) => (props.size === "small" ? props.small : props.large)} /
+    ${(props) => (props.size === "small" ? props.small : props.large)}
     ${(props) =>
-      props.size === "small" ? `${props.scale / 1.18}%` : `${props.scale}%`}
-    url(${(props) => props.dough ? require(`../img/Assets/${props.dough}.png`).default : `https://cnos5.sse.codesandbox.io/${props.image}.png`});
-  opacity: ${(props) => (props.opacity === true ? 0.5 : 1)};
+      props.dough === "thin" && props.size === "large"
+        ? props.largeThin
+        : props.dough === "lush" && props.size === "large"
+        ? props.largeLush
+        : ""} /
+    ${(props) =>
+      props.size === "small" ? `${props.scale / 1.16}%` : `${props.scale}%`}
+    url(${(props) =>
+      props.dough
+        ? require(`../img/Assets/${props.dough}.svg`).default
+        : `https://artem-pizza-server.herokuapp.com/${props.image}.svg`});
+  opacity: ${(props) => (props.opacity ? props.opacity : 1)};
+  animation-name: visible-assets;
+  animation-duration: 0.2s;
+  transition: background 0.2s linear;
 `;
 
 const AssetTitle = styled.p`
-  font-family: M PLUS Rounded 1c ExtraBold;
+  font-family: "Rounded Mplus 1c";
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
   line-height: 28px;
   width: 328px;
   height: 28px;
-  align: left;
+  text-align: left;
   margin: 0;
 `;
 
 const AssetsDescription = styled.p`
   width: 328px;
   height: auto;
-  font-family: M PLUS Rounded 1c ExtraBold;
+  font-family: "Rounded Mplus 1c";
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 18px;
   color: #4b4b7c;
-  margin: 0;
+  margin: 6px 0px 0px 0px;
   white-space: pre-line;
 `;
 
 const BottomDiv = styled.div`
   background-color: white;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 4px 16px;
   position: fixed;
   width: 326px;
-  left: 0px;
   top: 576px;
 `;
 
@@ -84,8 +100,6 @@ const StyledStandartSet = styled.div`
   padding: 0px 16px 20px 16px;
   width: 328px;
   height: auto;
-
-  &::-webkit-scrollbar {width:0px;}
 `;
 
 const StyledSauces = styled.div`
@@ -98,6 +112,7 @@ const StyledSauces = styled.div`
   overflow-x: scroll;
   border-radius: 10px;
   background: white;
+  scrollbar-width: thin;
 `;
 
 const StyledToppings = styled.div`
@@ -111,7 +126,7 @@ const StyledToppings = styled.div`
   h3 {
     margin: 0;
     padding-bottom: 4px;
-    font-family: M PLUS Rounded 1c ExtraBold;
+    font-family: "Rounded Mplus 1c";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -120,13 +135,13 @@ const StyledToppings = styled.div`
     width: 112px;
     height: 20px;
   }
-  :child-
 `;
 
 const StyledLongToppings = styled.div`
   width: 328px;
   height: auto;
   overflow-x: scroll;
+  scrollbar-width: thin;
 `;
 
 export const PizzaConfigurator = ({ cheeses, vegs, meats, onPizzaCreated }) => {
@@ -140,8 +155,6 @@ export const PizzaConfigurator = ({ cheeses, vegs, meats, onPizzaCreated }) => {
       meat: [],
     },
   });
-
-  console.log(cheeses);
 
   const ingredients = watch();
   const { size, dough, sauces } = ingredients;
@@ -179,21 +192,23 @@ export const PizzaConfigurator = ({ cheeses, vegs, meats, onPizzaCreated }) => {
         <Assets>
           <AssetComponent
             size={ingredients.size}
-            small="15px 30px"
-            large="0px 15px"
+            small="34px 25px"
+            large="center"
+            largeThin="10px"
+            largeLush="18px"
             dough={ingredients.dough}
-            scale="98"
+            scale="87"
           ></AssetComponent>
           {ingredients.cheese &&
             ingredients.cheese.map((cheese, i) => (
               <AssetComponent
                 key={i}
                 size={ingredients.size}
-                small="25px 30px"
-                large="10px 20px"
+                small="40px 30px"
+                large="30px 15px"
                 image={cheese}
-                opacity
-                scale="90"
+                opacity="0.5"
+                scale="80"
               ></AssetComponent>
             ))}
           {ingredients.vegetables &&
@@ -201,10 +216,10 @@ export const PizzaConfigurator = ({ cheeses, vegs, meats, onPizzaCreated }) => {
               <AssetComponent
                 key={i}
                 size={ingredients.size}
-                small="center"
-                large="center"
+                small="center 40px"
+                large="center 30px"
                 image={vegs}
-                scale="80"
+                scale="70"
               ></AssetComponent>
             ))}
           {ingredients.meat &&
@@ -212,14 +227,14 @@ export const PizzaConfigurator = ({ cheeses, vegs, meats, onPizzaCreated }) => {
               <AssetComponent
                 key={i}
                 size={ingredients.size}
-                small="35px 55px"
-                large="25px 45px"
+                small="center 40px"
+                large="center 30px"
                 image={meat}
-                scale="80"
+                scale="70"
               ></AssetComponent>
             ))}
         </Assets>
-        <AssetTitle>Маргарита</AssetTitle>
+        <AssetTitle>Ленивая Маргарита</AssetTitle>
         <AssetsDescription>
           {`${SIZE[size].name} см на ${DOUGH[dough].name
             .slice(0, -2)
@@ -228,7 +243,7 @@ export const PizzaConfigurator = ({ cheeses, vegs, meats, onPizzaCreated }) => {
           } соус ${toppingsDescription()}`}
         </AssetsDescription>
       </AssetsContainer>
-      <Form onSubmit={handleSubmit(onSubmit)} pb="5">
+      <Form onSubmit={handleSubmit(onSubmit)} pb="6">
         <StyledStandartSet>
           <StandartSet
             ref={register}
@@ -255,7 +270,7 @@ export const PizzaConfigurator = ({ cheeses, vegs, meats, onPizzaCreated }) => {
               ref={register}
               name={"sauces"}
               type="radio"
-              width="645"
+              width="650"
               title="Выберите соус"
               items={[SAUCE]}
             />
@@ -266,19 +281,21 @@ export const PizzaConfigurator = ({ cheeses, vegs, meats, onPizzaCreated }) => {
           <Toppings ref={register} topping={cheeses} width="330" />
         </StyledToppings>
         <StyledToppings>
+          <h3>Добавьте овощи</h3>
           <StyledLongToppings>
-            <h3>Добавьте овощи</h3>
-            <Toppings ref={register} topping={vegs} width="808" />
+            <Toppings ref={register} topping={vegs} width="1000" />
           </StyledLongToppings>
         </StyledToppings>
         <StyledToppings>
+          <h3>Добавьте мясо</h3>
           <StyledLongToppings>
-            <h3>Добавьте мясо</h3>
             <Toppings ref={register} topping={meats} width="584" />
           </StyledLongToppings>
         </StyledToppings>
         <BottomDiv>
-          <BaseButton mt="1" mb="1">Заказать за {price}</BaseButton>
+          <BaseButton mt="1" mb="1">
+            Заказать за {price}
+          </BaseButton>
         </BottomDiv>
       </Form>
     </>

@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
   root: (props) => ({
     width: "100%",
-    paddingBottom: theme.spacing(props.pb)
+    paddingBottom: theme.spacing(+props.pb)
   }),
 }));
 

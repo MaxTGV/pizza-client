@@ -12,7 +12,7 @@ const Basic = styled.div`
   p {
     margin: 0;
     padding-bottom: 4px;
-    font-family: M PLUS Rounded 1c ExtraBold;
+    font-family: "Rounded Mplus 1c";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -39,6 +39,7 @@ const Radio = styled.div`
     align-items: center;
     padding: 4px 12px;
     cursor: pointer;
+    font-family: "Rounded Mplus 1c";
     font-style: normal;
     font-weight: normal;
     font-size: 14px;

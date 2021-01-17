@@ -4,8 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   root: (props) => ({
-    marginTop: theme.spacing(props.mt),
-    marginBottom: theme.spacing(props.mb),
+    marginTop: theme.spacing(+props.mt),
+    marginBottom: theme.spacing(+props.mb),
     backgroundColor: "rgba(0, 168, 150, 1)",
     borderRadius: 16,
     color: "white",

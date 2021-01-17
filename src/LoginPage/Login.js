@@ -11,7 +11,7 @@ import { Navbar } from "../shared/component/Navbar";
 import { BaseButton } from "../shared/component/BaseButton";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import arrowLeft from "../img/icn_arrow-left.png";
+import arrowLeft from "../img/icn_arrow-left.svg";
 
 const Title = styled.p`
   font-family: Rounded Mplus 1c;

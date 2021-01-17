@@ -2,9 +2,9 @@ import React from "react";
 import { Navbar } from "../shared/component/Navbar";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import close from "../img/close.png";
-import success from "../img/success.png";
-import exclude from "../img/Exclude.png";
+import close from "../img/close.svg";
+import success from "../img/success.svg";
+import exclude from "../img/Exclude.svg";
 import { SIZE, DOUGH, SAUCE } from "../shared/pizzaData";
 
 const StyledLink = styled(Link)`

@@ -1,14 +1,12 @@
 import React, { forwardRef } from "react";
 import styled from "styled-components";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import { makeStyles } from "@material-ui/core";
+import { FormControlLabel, Checkbox, makeStyles } from "@material-ui/core";
 import clsx from "clsx";
 
 const Basic = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items: center;
   padding: 0;
   width: ${(props) => props.w}px;
   height: auto;
@@ -20,16 +18,21 @@ const ListToppings = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 4px 8px 4px 0px;
-  padding-bottom: 8px;
+  padding: 8px 0px;
   width: 104px;
-  height: auto;
-  background: #ffffff;
+  height: 114px;
+  background: white;
   box-shadow: 0px 8px 16px rgba(75, 75, 124, 0.05);
   border-radius: 12px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
   p {
     margin: 5px 0px 0px 0px;
     padding-bottom: 4px;
-    font-family: M PLUS Rounded 1c ExtraBold;
+    font-family: "Rounded Mplus 1c";
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -40,15 +43,47 @@ const ListToppings = styled.div`
   }
 `;
 
+const InfoTopping = styled.div`
+  width: 80px;
+  height: 95px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    height: 65px;
+    width: 65px;
+  }
+`;
+
 const FormTopping = styled.div`
+  font-family: "Rounded Mplus 1c";
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: -105px;
+  left: 0px;
+  border-radius: 12px;
+
   label {
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-between;
-    padding: 0px;
-    width: 80px;
-    height: 20px;
+    justify-content: space-around;
+    padding: 0px 0px 5px 0px;
+    width: 100px;
+    height: 125px;
     margin: 0px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    align-items: flex-end;
+  }
+
+  span {
+    font-family: "Rounded Mplus 1c";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
   }
 `;
 
@@ -65,6 +100,7 @@ const useStyles = makeStyles({
   },
   checkedIcon: {
     backgroundColor: "rgba(0, 168, 150, 1)",
+    border: "1px solid rgba(0, 168, 150, 1)",
     backgroundImage:
       "linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))",
     "&:before": {
@@ -80,17 +116,23 @@ const useStyles = makeStyles({
   },
 });
 
-export const Toppings = forwardRef(({ topping, width,  ...props }, ref) => {
+export const Toppings = forwardRef(({ topping, width, ...props }, ref) => {
   const styles = useStyles();
+
   return (
     <Basic w={width}>
       {topping.map((item, i) => (
-        <ListToppings key={i}>
-          <img src={`https://cnos5.sse.codesandbox.io/${item.thumbnail}`} alt={item.name} />
-          <p>{item.name}</p>
+        <ListToppings key={i} className={styles.borderStyle}>
+          <InfoTopping>
+            <img
+              src={`https://artem-pizza-server.herokuapp.com/${item.thumbnail}`}
+              alt={item.name}
+            />
+            <p>{item.name}</p>
+          </InfoTopping>
           <FormTopping>
             <FormControlLabel
-              label={`${item.price} Р`}
+              label={`${item.price} ₽`}
               control={
                 <Checkbox
                   className={styles.root}

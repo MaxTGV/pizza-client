@@ -10,7 +10,7 @@ import { Form } from "../shared/component/Form";
 import { Input } from "../shared/component/Input";
 import { MainContainer } from "../shared/component/MainContainer";
 import styled from "styled-components";
-import arrowLeft from "../img/icn_arrow-left.png";
+import arrowLeft from "../img/icn_arrow-left.svg";
 
 const Title = styled.p`
   font-family: Rounded Mplus 1c;

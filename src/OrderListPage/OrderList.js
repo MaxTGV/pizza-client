@@ -5,7 +5,7 @@ import { getLogin } from "../LoginPage/state/selectors";
 import { getOrderList } from "../shared/api";
 import { Navbar } from "../shared/component/Navbar";
 import styled from "styled-components";
-import arrowLeft from "../img/icn_arrow-left.png";
+import arrowLeft from "../img/icn_arrow-left.svg";
 
 const Title = styled.p`
   font-family: Rounded Mplus 1c;
