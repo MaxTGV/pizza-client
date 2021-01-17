@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { PizzaConfiguratorPage } from "./PizzaConfiguratorPage";
 import { PizzaPreviewPage } from "./PizzaPreviewPage";
 import { LoginPage } from "./LoginPage";
@@ -7,15 +7,9 @@ import { RegistrationPage } from "./RegistrationPage";
 import { OrderListPage } from "./OrderListPage";
 import { CheckPage } from "./CheckPage";
 
-
- 
-
-
 export function App() {
   return (
     <>
-     
-
       <Switch>
         <Route exact path="/">
           <PizzaConfiguratorPage />
