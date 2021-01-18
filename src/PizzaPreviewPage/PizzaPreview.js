@@ -7,21 +7,6 @@ const SummaryOrder = styled.div`
   padding-top:14px;
 `;
 
-const StyledMainContainer = styled(MainContainer)`
-  margin: 0px 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: white;
-  width: 328px;
-  height: auto;
-  border-radius: 16px;
-  padding: 12px 16px 0px 16px;
-  box-shadow: 0px 8px 16px rgba(75, 75, 124, 0.05);
-  justify-content: space-around;
-  min-height: 130px;
-`;
-
 const OrderTitle = styled.p`
   font-family: "Rounded Mplus 1c";
   font-style: normal;
@@ -83,7 +68,7 @@ export const PizzaPreview = ({ newPizza, cheeses, vegs, meats }) => {
 
   return (
     <SummaryOrder>
-      <StyledMainContainer>
+      <MainContainer>
         <OrderTitle>Ленивая Маргарита</OrderTitle>
         <OrderDescription>
           {`${SIZE[size].name} см на ${DOUGH[dough].name
@@ -94,7 +79,7 @@ export const PizzaPreview = ({ newPizza, cheeses, vegs, meats }) => {
         </OrderDescription>
         <Line></Line>
         <OrderPrice>{`${price} руб`}</OrderPrice>
-      </StyledMainContainer>
+      </MainContainer>
     </SummaryOrder>
   );
 };

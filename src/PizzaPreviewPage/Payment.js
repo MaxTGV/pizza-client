@@ -116,7 +116,7 @@ const Message = styled.p`
 
 const TotalForm = styled.div`
   position: fixed;
-  top: 495px;
+  top: 496px;
   background-color: white;
   display: flex;
   flex-direction: column;
