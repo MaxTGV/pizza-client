@@ -16,7 +16,7 @@ import styled from "styled-components";
 import arrowLeft from "../img/icn_arrow-left.svg";
 
 const Title = styled.p`
-  font-family: Rounded Mplus 1c;
+  font-family: "Rounded Mplus 1c";
   font-style: normal;
   font-weight: 800;
   font-size: 20px;
@@ -80,7 +80,7 @@ export const PizzaPreviewPage = () => {
         <StyledLink to="/">
           <img src={arrowLeft} alt="arrowLeft" />
         </StyledLink>
-        <Title>Оформление заказа</Title>
+        <Title>Мои заказы</Title>
       </Navbar>
       <PizzaPreview
         newPizza={pizza}

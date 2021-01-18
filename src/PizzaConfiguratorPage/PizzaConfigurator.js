@@ -18,6 +18,13 @@ const AssetsContainer = styled.div`
   height: auto;
   background-color: white;
   padding-bottom: 24px;
+  box-shadow: inset 0px 2px 2px rgba(20, 20, 55, 0.1);
+  h1 {
+    font-family: "Rounded Mplus 1c";
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 36px;
+  }
 `;
 
 const Assets = styled.div`
@@ -27,7 +34,7 @@ const Assets = styled.div`
   background: no-repeat center/100% url(${plate});
   opacity: 1;
   animation-name: visible-assets;
-  animation-duration: 3s;
+  animation-duration: 20ms;
 `;
 
 const AssetComponent = styled.div`
@@ -86,7 +93,7 @@ const BottomDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 4px 16px;
+  padding: 5px 16px;
   position: fixed;
   width: 326px;
   top: 576px;
@@ -189,6 +196,7 @@ export const PizzaConfigurator = ({ cheeses, vegs, meats, onPizzaCreated }) => {
   return (
     <>
       <AssetsContainer>
+        <h1>Собери свою пиццу</h1>
         <Assets>
           <AssetComponent
             size={ingredients.size}
@@ -234,7 +242,7 @@ export const PizzaConfigurator = ({ cheeses, vegs, meats, onPizzaCreated }) => {
               ></AssetComponent>
             ))}
         </Assets>
-        <AssetTitle>Ленивая Маргарита</AssetTitle>
+        <AssetTitle>Маргарита</AssetTitle>
         <AssetsDescription>
           {`${SIZE[size].name} см на ${DOUGH[dough].name
             .slice(0, -2)

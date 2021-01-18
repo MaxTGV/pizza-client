@@ -4,7 +4,10 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   root: {
-    padding: 0,
+    "& .MuiInputBase-input": {
+      backgroundColor: 'white',
+      padding: 12,
+    },
     "& label.Mui-focused": {
       color: 'rgba(0, 168, 150, 1)',
     },

@@ -2,8 +2,27 @@ import { MainContainer } from "../shared/component/MainContainer";
 import { SIZE, DOUGH, SAUCE } from "../shared/pizzaData";
 import styled from "styled-components";
 
+const SummaryOrder = styled.div`
+  box-shadow: inset 0px 2px 2px rgba(20, 20, 55, 0.1);
+  padding-top:14px;
+`;
+
+const StyledMainContainer = styled(MainContainer)`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: white;
+  width: 328px;
+  height: auto;
+  border-radius: 16px;
+  padding-top: 12px;
+  box-shadow: 0px 8px 16px rgba(75, 75, 124, 0.05);
+  justify-content: space-around;
+  min-height: 130px;
+`;
+
 const OrderTitle = styled.p`
-  font-family: M PLUS Rounded 1c ExtraBold;
+  font-family: "Rounded Mplus 1c";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -18,7 +37,7 @@ const OrderTitle = styled.p`
 const OrderDescription = styled.p`
   width: 296px;
   height: auto;
-  font-family: M PLUS Rounded 1c ExtraBold;
+  font-family: "Rounded Mplus 1c";
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -36,12 +55,12 @@ const Line = styled.hr`
 `;
 
 const OrderPrice = styled.p`
-  font-family: M PLUS Rounded 1c ExtraBold;
+  font-family: "Rounded Mplus 1c";
   font-style: normal;
   font-weight: 800;
   font-size: 16px;
   line-height: 16px;
-  color: #4B4B7C;
+  color: #4b4b7c;
 `;
 
 export const PizzaPreview = ({ newPizza, cheeses, vegs, meats }) => {
@@ -62,17 +81,19 @@ export const PizzaPreview = ({ newPizza, cheeses, vegs, meats }) => {
   };
 
   return (
-    <MainContainer>
-      <OrderTitle>Ленивая Маргарита</OrderTitle>
-      <OrderDescription>
-        {`${SIZE[size].name} см на ${DOUGH[dough].name
-          .slice(0, -2)
-          .toLowerCase()}ом  тесте \u00b7 ${
-          SAUCE[sauces].name
-        } соус ${toppingsDescription()}`}
-      </OrderDescription>
-      <Line></Line>
-      <OrderPrice>{`${price} руб`}</OrderPrice>
-    </MainContainer>
+    <SummaryOrder>
+      <StyledMainContainer>
+        <OrderTitle>Ленивая Маргарита</OrderTitle>
+        <OrderDescription>
+          {`${SIZE[size].name} см на ${DOUGH[dough].name
+            .slice(0, -2)
+            .toLowerCase()}ом  тесте \u00b7 ${
+            SAUCE[sauces].name
+          } соус ${toppingsDescription()}`}
+        </OrderDescription>
+        <Line></Line>
+        <OrderPrice>{`${price} руб`}</OrderPrice>
+      </StyledMainContainer>
+    </SummaryOrder>
   );
 };
