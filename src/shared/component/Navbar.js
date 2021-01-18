@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: (props) => props.jc ? props.jc : "flex-start",
-    backgroundColor: (props) => props.bg ? props.bg : 'rgba(249, 249, 251, 1)',
+    backgroundColor: 'white'/*(props) => props.bg ? props.bg : 'rgba(249, 249, 251, 1)'*/,
   },
 }));
 

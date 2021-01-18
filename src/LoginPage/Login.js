@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 import arrowLeft from "../img/icn_arrow-left.svg";
 
 const Title = styled.p`
-  font-family: Rounded Mplus 1c;
+  font-family: "Rounded Mplus 1c";
   font-weight: 800;
   font-size: 20px;
   line-height: 28px;

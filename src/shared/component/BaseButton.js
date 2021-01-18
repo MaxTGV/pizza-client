@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     color: "white",
     fontWeight: "bold",
     fontSize: 16,
-    fontFamily: "M PLUS Rounded  1C ExtraBold",
+    fontFamily: "Rounded Mplus 1c",
     textTransform: "none",
     "&:hover": {
       backgroundColor: "rgba(0, 168, 150, 1)",

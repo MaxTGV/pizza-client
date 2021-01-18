@@ -15,6 +15,14 @@ const StyledLink = styled(Link)`
   border-radius: 8px;
 `;
 
+const Title = styled.p`
+  font-family: "Rounded Mplus 1c";
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 28px;
+  margin: 0px;
+`;
+
 const OrderStatusContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -33,15 +41,13 @@ const OrderStatus = styled.div`
   width: 328px;
   height: auto;
   background-color: white;
-  box-shadow: 0px 8px 16px rgba(75, 75, 124, 0.05);
-  border-radius: 16px;
 `;
 
 const StatusText = styled.p`
   width: 248px;
   height: 40px;
   margin: 0;
-  font-family: Rounded Mplus 1c;
+  font-family: "Rounded Mplus 1c";
   font-style: normal;
   margin-top: ${(props) => (props.mt ? props.mt : "0")}px;
   font-weight: ${(props) => props.fw};
@@ -73,7 +79,7 @@ const OrderInfo = styled.div`
 `;
 
 const OrderTitle = styled.p`
-  font-family: M PLUS Rounded 1c ExtraBold;
+  font-family: "Rounded Mplus 1c";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -89,7 +95,7 @@ const OrderTitle = styled.p`
 const OrderDescription = styled.p`
   width: ${(props) => props.w}px;
   height: auto;
-  font-family: M PLUS Rounded 1c ExtraBold;
+  font-family: "Rounded Mplus 1c";
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -108,15 +114,15 @@ const Line = styled.hr`
 `;
 
 const OrderDetails = styled.div`
-  width: 296px;
+  width: 305px;
   height: 28px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin: 5px 0px;
   span {
-    font-family: M PLUS Rounded 1c ExtraBold;
+    font-family: "Rounded Mplus 1c";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -126,14 +132,14 @@ const OrderDetails = styled.div`
 `;
 
 const OrderPrice = styled.p`
-  font-family: M PLUS Rounded 1c ExtraBold;
+  font-family: "Rounded Mplus 1c";
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 18px;
   color: #4b4b7c;
-  margin: 0;
-  padding: 13px 16px;
+  margin: 0px 5px 0px 0px;
+  padding: 13px 13px;
 `;
 
 export const Check = ({ pizza, cheeses, vegs, meats }) => {
@@ -165,7 +171,8 @@ export const Check = ({ pizza, cheeses, vegs, meats }) => {
 
   return (
     <>
-      <Navbar jc="flex-end">
+      <Navbar jc="space-between">
+        <Title>Оформление заказа</Title>
         <StyledLink to="/">
           <img src={close} alt="alt" />
         </StyledLink>

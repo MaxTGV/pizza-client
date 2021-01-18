@@ -119,7 +119,7 @@ export const PizzaConfiguratorPage = () => {
 
   return (
     <>
-      <Navbar bg="white" jc="space-between">
+      <Navbar jc="space-between">
         <HeaderDiv>
           <StyledLink to="/">
             <img src={logo} alt="alt" />
