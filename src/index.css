@@ -1,13 +1,102 @@
+@font-face {
+  font-family: 'Rounded Mplus 1c';
+    src: url('./fonts/RoundedMplus1c-Regular.eot');
+    src: local('Rounded Mplus 1c Regular'), local('RoundedMplus1c-Regular'),
+        url('./fonts/RoundedMplus1c-Regular.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/RoundedMplus1c-Regular.woff2') format('woff2'),
+        url('./fonts/RoundedMplus1c-Regular.woff') format('woff'),
+        url('./fonts/RoundedMplus1c-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rounded Mplus 1c';
+    src: url('./fonts/RoundedMplus1c-Medium.eot');
+    src: local('Rounded Mplus 1c Medium'), local('RoundedMplus1c-Medium'),
+        url('./fonts/RoundedMplus1c-Medium.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/RoundedMplus1c-Medium.woff2') format('woff2'),
+        url('./fonts/RoundedMplus1c-Medium.woff') format('woff'),
+        url('./fonts/RoundedMplus1c-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rounded Mplus 1c';
+    src: url('./fonts/RoundedMplus1c-ExtraBold.eot');
+    src: local('Rounded Mplus 1c ExtraBold'), local('RoundedMplus1c-ExtraBold'),
+        url('./fonts/RoundedMplus1c-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/RoundedMplus1c-ExtraBold.woff2') format('woff2'),
+        url('./fonts/RoundedMplus1c-ExtraBold.woff') format('woff'),
+        url('./fonts/RoundedMplus1c-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@keyframes visible-assets {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+  0% {
+    opacity: 0;
+  }
+}
+
+@keyframes glow {
+  0%, 40%, 100% {
+    transform: scale(.1);
+  }
+  20% {
+    transform: scale(1);
+  }
+}
+
+html {
+  background-color: white;
+  overflow: hidden;
+}  
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  scrollbar-width: none;
+  scrollbar-color: #4B4B7C #f9f9fd;
+  margin: 0 auto;
+  font-family: BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 360px;
+  height: 640px;
+  background: white;
+  box-shadow: inset 0px 2px 2px rgba(20, 20, 55, 0.1);
+  overflow-y: scroll;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body::-webkit-scrollbar {
+  width: 0;
 }
+
+::-webkit-scrollbar {
+  height: 3px;
+  background-color:rgba(249, 249, 251, 1);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 16px;
+  background-color: #4B4B7C;
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 16px;
+  background-color: #f9f9fd;
+}
+
+input[type=checkbox]:checked + div {
+  border: 1px solid red;
+}
+

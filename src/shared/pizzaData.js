@@ -9,7 +9,11 @@ export const DOUGH = {
 };
 
 export const SAUCE = {
-  tomato: { name: "Томатный", price: 0 },
-  white: { name: "Белый", price: 0 },
+  tomatosauce: { name: "Томатный", price: 0 },
+  mayo: { name: "Майонез", price: 0 },
   spicy: { name: "Острый", price: 0 },
+  mash: {name: "Грибной", price: 0},
+  garlic: {name: "Чесночный", price: 0},
+  sweetandsour: {name: "Кисло-сладкий", price: 0},
+  mustard: {name: "Горчичный", price: 0}
 };
