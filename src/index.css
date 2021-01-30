@@ -1,3 +1,45 @@
+/*Обнуляющие стили*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+/*Изменяет подсчет ширины блока так, чтобы было удбно верстать*/
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/*Убираем линии обводки у некоторых браузеров*/
+:focus, :active {outline: none;}
+a:focus, a:active {outline: none;}
+/*Превращаем элементы в блочные*/
+nav, footer, header, aside {display: block;}
+/*Уравниваем поведение шрифтов и размеров для разных браузеров*/
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+/*Указываем формам наследовать шрифт*/
+input, button, textarea {font-family: inherit;}
+/*Убираются различные своёства в разных браузерах*/
+input::-ms-clear {display: none;}
+button, label {cursor: pointer;}
+button::-moz-focus-inner {padding: 0; border:0;}
+a, a:visited {text-decoration: none;}
+a:hover {text-decoration: none;}
+ul li {list-style: none;}
+img {vertical-align: top;}
+/*обнуляем заголовки*/
+h1, h2, h3, h4, h5, h6 {font-size: inherit; font-weight: 400;}
+
+/*Подключаем шрифты*/
 @font-face {
   font-family: 'Rounded Mplus 1c';
     src: url('./fonts/RoundedMplus1c-Regular.eot');
@@ -34,25 +76,17 @@
     font-style: normal;
 }
 
-@keyframes visible-assets {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0.5;
-  }
-  0% {
-    opacity: 0;
-  }
-}
-
 @keyframes glow {
   0%, 40%, 100% {
-    transform: scale(.1);
+    transform: scale(0);
   }
   20% {
     transform: scale(1);
   }
+}
+
+*, *:after, *:before {
+  box-sizing: border-box;
 }
 
 html {
@@ -62,9 +96,9 @@ html {
 
 body {
   scrollbar-width: none;
-  scrollbar-color: #4B4B7C #f9f9fd;
+  scrollbar-color: #00A896 #f9f9fd;
   margin: 0 auto;
-  font-family: BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: "Rounded Mplus 1c", 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -75,6 +109,7 @@ body {
   box-shadow: inset 0px 2px 2px rgba(20, 20, 55, 0.1);
   overflow-y: scroll;
 }
+
 
 body::-webkit-scrollbar {
   width: 0;
@@ -87,16 +122,12 @@ body::-webkit-scrollbar {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 16px;
-  background-color: #4B4B7C;
+  background-color: #00A896;
   opacity: 0.5;
 }
 
 ::-webkit-scrollbar-track {
   border-radius: 16px;
   background-color: #f9f9fd;
-}
-
-input[type=checkbox]:checked + div {
-  border: 1px solid red;
 }
 

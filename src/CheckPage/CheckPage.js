@@ -8,7 +8,6 @@ export const CheckPage = () => {
   const cheeses = useSelector(getIngredientsByCategory("cheese"));
   const vegs = useSelector(getIngredientsByCategory("vegetables"));
   const meats = useSelector(getIngredientsByCategory("meat"));
-  console.log(pizza);
 
   return <Check pizza={pizza} cheeses={cheeses} vegs={vegs} meats={meats} />;
 };

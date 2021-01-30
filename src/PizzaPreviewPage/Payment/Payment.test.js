@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
-import { Payment } from './Payment';
+import { Payment } from '.';
 
 describe("Payment", () => {
     it("renders correctly", () => {

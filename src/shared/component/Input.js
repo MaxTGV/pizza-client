@@ -1,36 +1,60 @@
 import React, { forwardRef } from "react";
-import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
 
-const useStyles = makeStyles({
-  root: {
-    "& .MuiInputBase-input": {
-      backgroundColor: 'white',
-      padding: 12,
-    },
-    "& label.Mui-focused": {
-      color: 'rgba(0, 168, 150, 1)',
-    },
-    '& .MuiOutlinedInput-root': {
-      '&.Mui-focused fieldset': {
-        borderColor: 'rgba(0, 168, 150, 1)',
-      },
-    }
-  },
-});
+const StyledLabel = styled.label`
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #4b4b7c;
+  margin: 8px 0px;
+`;
+
+const StyledInput = styled.input`
+  width: ${({ label }) => (label ? "296px" : "inherit")};
+  height: 48px;
+  background: #ffffff;
+  border: 2px solid #e1e1ed;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #1F1F33;
+
+  &::placeholder {
+    font-size: 16px;
+    line-height: 24px;
+    color: #8181b1;
+  }
+
+  &:hover {
+    border: 2px solid #8181b1;
+  }
+
+  &:focus {
+    border: 2px solid #00a896;
+  }
+
+  &:invalid {
+    border: 2px solid #e3170a;
+    color: #e3170a;
+  }
+`;
+
+const Error = styled.p`
+  line-height: 20px;
+  color: #e3170a;
+  margin: 4px 0px;
+`;
 
 export const Input = forwardRef((props, ref) => {
-  const styles = useStyles();
-
   return (
-    <TextField
-      className={styles.root}
-      variant="outlined"
-      margin="normal"
-      fullWidth
-      size="small"
-      inputRef={ref}
-      {...props}
-    />
+    <>
+      {props.label && (
+        <StyledLabel htmlFor={props.id}>{props.label}</StyledLabel>
+      )}
+      <StyledInput type="text" ref={ref} {...props} />
+      {props.error && <Error>{props.helperText}</Error>}
+    </>
   );
 });

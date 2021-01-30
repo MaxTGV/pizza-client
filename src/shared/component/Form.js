@@ -1,19 +1,14 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
 
-const useStyles = makeStyles(theme => ({
-  root: (props) => ({
-    width: "100%",
-    paddingBottom: theme.spacing(+props.pb)
-  }),
-}));
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 360px;
+  margin-bottom: ${(props) => props.mb ? '55px' : '0px'};
+`;
 
 export const Form = ({ children, ...props }) => {
-  const styles = useStyles({...props});
-
-  return (
-    <form className={styles.root} {...props}>
-      {children}
-    </form>
-  );
+  return <StyledForm {...props}>{children}</StyledForm>;
 };

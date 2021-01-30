@@ -1,41 +1,71 @@
 import React, { forwardRef } from "react";
 import styled from "styled-components";
-import { FormControlLabel, Checkbox, makeStyles } from "@material-ui/core";
-import clsx from "clsx";
+import check from "../img/check.svg";
 
-const Basic = styled.div`
+const server = process.env.REACT_APP_BACKEND_URL;
+
+const ToppingsList = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0;
-  width: ${(props) => props.w}px;
+  width: max-content;
   height: auto;
   background: white;
 `;
 
-const ListToppings = styled.div`
+const ToppingItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 4px 8px 4px 0px;
-  padding: 8px 0px;
   width: 104px;
-  height: 114px;
+  height: 135px;
   background: white;
-  box-shadow: 0px 8px 16px rgba(75, 75, 124, 0.05);
+  box-shadow: ${(props) =>
+    props.border ? "none" : "0px 8px 16px rgba(75, 75, 124, 0.05)"};
   border-radius: 12px;
+  border: ${(props) =>
+    props.border ? "2px solid #00A896" : "2px solid transparent"};
+  transition: all 0.2ms ease-out;
+
+  & label {
+    width: 104px;
+    height: 135px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  & label span:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border: 2px solid #e1e1ed;
+    border-radius: 4px;
+    left: 60px;
+    top: 0;
+  }
+
+  & label input:checked + span:before {
+    background: #00a896 url(${check}) 1.5px 3px no-repeat;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #00a896;
+    transition: all 0.15s ease-in;
+  }
 
   &:hover {
     cursor: pointer;
+    box-shadow: ${(props) =>
+      props.border ? "none" : "0px 10px 20px rgba(75, 75, 124, 0.2)"};
   }
 
   p {
     margin: 5px 0px 0px 0px;
     padding-bottom: 4px;
-    font-family: "Rounded Mplus 1c";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
+    font-weight: ${(props) => (props.border ? "500" : "normal")};
     line-height: 20px;
     color: #1f1f33;
     width: 80px;
@@ -43,10 +73,11 @@ const ListToppings = styled.div`
   }
 `;
 
-const InfoTopping = styled.div`
+const ToppingAsset = styled.div`
   width: 80px;
   height: 95px;
   display: flex;
+  margin-top: 10px;
   flex-direction: column;
   align-items: center;
   img {
@@ -56,100 +87,57 @@ const InfoTopping = styled.div`
 `;
 
 const FormTopping = styled.div`
-  font-family: "Rounded Mplus 1c";
   display: flex;
   align-items: center;
-  position: relative;
-  top: -105px;
-  left: 0px;
   border-radius: 12px;
+  justify-content: space-between;
+  width: 80px;
 
-  label {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-around;
-    padding: 0px 0px 5px 0px;
-    width: 100px;
-    height: 125px;
-    margin: 0px;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    align-items: flex-end;
+  input {
+    display: none;
   }
 
   span {
-    font-family: "Rounded Mplus 1c";
-    font-style: normal;
+    position: relative;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
+    color: #1f1f33;
+    padding-bottom: 3px;
   }
 `;
 
-const useStyles = makeStyles({
-  root: {
-    padding: "0px 4px 0px 0px",
-  },
-  icon: {
-    backgroundColor: "#FFFFFF",
-    borderRadius: 4,
-    border: "1px solid #C0C0D8",
-    width: 16,
-    height: 16,
-  },
-  checkedIcon: {
-    backgroundColor: "rgba(0, 168, 150, 1)",
-    border: "1px solid rgba(0, 168, 150, 1)",
-    backgroundImage:
-      "linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))",
-    "&:before": {
-      display: "block",
-      width: 16,
-      height: 16,
-      backgroundImage:
-        "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath" +
-        " fill-rule='evenodd' clip-rule='evenodd' d='M12 5c-.28 0-.53.11-.71.29L7 9.59l-2.29-2.3a1.003 " +
-        "1.003 0 00-1.42 1.42l3 3c.18.18.43.29.71.29s.53-.11.71-.29l5-5A1.003 1.003 0 0012 5z' fill='%23fff'/%3E%3C/svg%3E\")",
-      content: '""',
-    },
-  },
-});
-
-export const Toppings = forwardRef(({ topping, width, ...props }, ref) => {
-  const styles = useStyles();
+export const Toppings = forwardRef(({ topping, checked, ...props }, ref) => {
+  const isChecked = (value) => {
+    return checked.includes(value);
+  };
 
   return (
-    <Basic w={width}>
-      {topping.map((item, i) => (
-        <ListToppings key={i} className={styles.borderStyle}>
-          <InfoTopping>
-            <img
-              src={`https://artem-pizza-server.herokuapp.com/${item.thumbnail}`}
-              alt={item.name}
-            />
-            <p>{item.name}</p>
-          </InfoTopping>
-          <FormTopping>
-            <FormControlLabel
-              label={`${item.price} ₽`}
-              control={
-                <Checkbox
-                  className={styles.root}
-                  icon={<span className={styles.icon} />}
-                  checkedIcon={
-                    <span className={clsx(styles.icon, styles.checkedIcon)} />
-                  }
-                  inputRef={ref}
-                  value={item.slug}
-                  name={item.category}
-                  {...props}
-                />
-              }
-            />
-          </FormTopping>
-        </ListToppings>
+    <ToppingsList>
+      {topping.map((item) => (
+        <ToppingItem key={item.id} border={isChecked(item.slug)}>
+          <label htmlFor={item.slug}>
+            <ToppingAsset>
+              <img
+                src={`${server}/${item.thumbnail}`}
+                alt={item.name}
+              />
+              <p>{item.name}</p>
+            </ToppingAsset>
+            <FormTopping>
+              <input
+                type="checkbox"
+                id={item.slug}
+                value={item.slug}
+                name={item.category}
+                ref={ref}
+                {...props}
+              />
+              <span>{item.price} ₽</span>
+            </FormTopping>
+          </label>
+        </ToppingItem>
       ))}
-    </Basic>
+    </ToppingsList>
   );
 });
