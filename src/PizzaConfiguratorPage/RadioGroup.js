@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Switcher = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: flex-start;
   padding: 2px;

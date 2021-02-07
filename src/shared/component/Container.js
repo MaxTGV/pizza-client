@@ -9,8 +9,6 @@ const StyledContainer = styled.div`
   background-color: #ffffff;
   box-shadow: 0px -16px 32px rgba(75, 75, 124, 0.05),
     0px 0px 4px rgba(75, 75, 124, 0.1);
-  width: 360px;
-  height: auto;
 `;
 
 export const Container = ({ children, ...props }) => {

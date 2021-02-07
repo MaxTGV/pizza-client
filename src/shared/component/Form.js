@@ -5,8 +5,8 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 360px;
   margin-bottom: ${(props) => props.mb ? '55px' : '0px'};
+  h1 {display: none};
 `;
 
 export const Form = ({ children, ...props }) => {

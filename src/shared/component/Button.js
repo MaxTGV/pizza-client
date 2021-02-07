@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  width: ${({auth}) => auth ? '296px' : '328px'};
+  width: 100%;
   height: 48px;
   background-color: rgba(0, 168, 150, 1);
   border-radius: 16px;

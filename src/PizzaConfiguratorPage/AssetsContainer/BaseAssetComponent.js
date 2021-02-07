@@ -19,7 +19,7 @@ const StyledBaseAssetComponent = styled.div`
 
 export const BaseAssetComponent = ({ size, dough }) => {
   return (
-    <StyledBaseAssetComponent size={size} dough={dough}>
+    <StyledBaseAssetComponent className="doughAsset" size={size} dough={dough}>
       <img src={require(`../../img/Assets/${dough}.svg`).default} alt="dough" />
     </StyledBaseAssetComponent>
   );

@@ -5,15 +5,12 @@ import { AssetsDescription } from "./AssetDescription";
 import { BaseAssetComponent } from "./BaseAssetComponent";
 import { ToppingAssetComponent } from "./ToppingAssetComponent";
 
-
 const StyledAssetsContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 360px;
-  height: auto;
-  margin-bottom:16px;
+  margin-bottom: 16px;
   h1 {
     margin: 16px 0px 24px 0px;
     font-weight: 800;
@@ -50,15 +47,18 @@ export const AssetsContainer = ({ ingredients, toppingsData }) => {
   return (
     <StyledAssetsContainer>
       <h1>Собери свою пиццу</h1>
-      <Assets>
-        <PlateAsset />
+      <Assets className="assets">
+        <PlateAsset className="plateAsset" />
         <BaseAssetComponent size={size} dough={dough} />
         <ToppingAssetComponent width="80" size={size} topping={cheese} />
         <ToppingAssetComponent width="70" size={size} topping={vegetables} />
         <ToppingAssetComponent width="75" size={size} topping={meat} />
       </Assets>
       <AssetTitle>Маргарита</AssetTitle>
-      <AssetsDescription ingredients={ingredients} toppingsData={toppingsData} />
+      <AssetsDescription
+        ingredients={ingredients}
+        toppingsData={toppingsData}
+      />
     </StyledAssetsContainer>
   );
 };

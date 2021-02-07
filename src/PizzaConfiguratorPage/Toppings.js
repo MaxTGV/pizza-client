@@ -113,7 +113,7 @@ export const Toppings = forwardRef(({ topping, checked, ...props }, ref) => {
   };
 
   return (
-    <ToppingsList>
+    <ToppingsList className={props.className}>
       {topping.map((item) => (
         <ToppingItem key={item.id} border={isChecked(item.slug)}>
           <label htmlFor={item.slug}>

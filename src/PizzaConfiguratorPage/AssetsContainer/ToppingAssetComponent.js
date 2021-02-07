@@ -23,7 +23,7 @@ export const ToppingAssetComponent = ({ width, size, topping }) => {
     <>
       {topping &&
         topping.map((item, i) => (
-          <StyledToppingAsset key={i} size={size} width={width}>
+          <StyledToppingAsset className="toppingAsset" key={i} size={size} width={width}>
             <img src={`${server}/${item}.svg`} alt="topping" />
           </StyledToppingAsset>
         ))}
