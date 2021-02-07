@@ -51,10 +51,10 @@ export const Login = () => {
             error={!!errors.password}
             helperText={errors?.password?.message}
           />
-          <Button auth disabled={!disabled}>
+          <Button disabled={!disabled}>
             Войти
           </Button>
-          <Button auth onClick={() => history.push("/registration")}>
+          <Button onClick={() => history.push("/registration")}>
             Регистрация
           </Button>
         </FormContainer>

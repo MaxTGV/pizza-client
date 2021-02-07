@@ -16,6 +16,9 @@ const StyledContainer = styled(Container)`
   button {
       margin-top: 16px;
   }
+  @media (min-width: 800px) {
+    width: 600px;
+  }
 `;
 
 export const FormContainer = ({ children }) => {

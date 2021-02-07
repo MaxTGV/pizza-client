@@ -13,6 +13,9 @@ const StyledHeader = styled(Container)`
     a div p {
       display: block;
     }
+    div a p {
+      display: block;
+    }
   }
 `;
 

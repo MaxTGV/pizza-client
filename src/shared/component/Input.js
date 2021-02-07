@@ -10,7 +10,7 @@ const StyledLabel = styled.label`
 `;
 
 const StyledInput = styled.input`
-  width: ${({ label }) => (label ? "296px" : "inherit")};
+  width: 100%;
   height: 48px;
   background: #ffffff;
   border: 2px solid #e1e1ed;
