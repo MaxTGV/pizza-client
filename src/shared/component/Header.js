@@ -10,10 +10,7 @@ const StyledHeader = styled(Container)`
   padding: 8px 8px 8px 16px;
   box-shadow: 0px 3px 4px rgba(46, 49, 55, 0.05), 0px 0px 2px rgba(46, 49, 55, 0.15);
   @media (min-width: 460px) {
-    a div p {
-      display: block;
-    }
-    div a p {
+    a div p, div a p, div p {
       display: block;
     }
   }
