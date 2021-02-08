@@ -8,7 +8,8 @@ const Title = styled.p`
   font-weight: 800;
   font-size: 20px;
   line-height: 28px;
-  width: 264px;
+  width: 62%;
+  text-align: right;
 `;
 
 const StyledLink = styled(Link)`
