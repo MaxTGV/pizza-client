@@ -1,58 +1,11 @@
 import React, { forwardRef, useState } from "react";
-import styled from "styled-components";
 import { Input } from "../../shared/component/Input";
-import visa from "../../img/visa.svg";
-import mastercard from "../../img/mastercard.svg";
+import { StyledPaymentForm, StyledPayment, CardAttribute } from "../style";
 import {
   normalizeCardNumber,
   normalizeDateCard,
   normalizeCVV,
 } from "./normalizeFunctions";
-
-const StyledPaymentForm = styled.div`
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 0px 16px 0px 16px;
-  width: 328px;
-  height: auto;
-  h3 {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 20px;
-    color: #1f1f33;
-    margin-bottom: 16px;
-  }
-`;
-
-const StyledPayment = styled.div`
-  position: absolute;
-  background: no-repeat center/60%
-    url(${({ payment }) => (payment === "visa" ? visa : mastercard)});
-  width: 85px;
-  height: 40px;
-  top: 40px;
-  left: 245px;
-  z-index: 1;
-`;
-
-const CardAttribute = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  justify-content: space-between;
-  width: 328px;
-  height: auto;
-  & div:first-child {
-    width: 104px;
-    margin: 16px 0px;
-  }
-  & div:last-child {
-    width: 64px;
-    margin: 16px 0px;
-  }
-`;
 
 export const PaymentForm = forwardRef(({ errors }, ref) => {
   const [pay, setPay] = useState("");
@@ -69,9 +22,9 @@ export const PaymentForm = forwardRef(({ errors }, ref) => {
   };
 
   return (
-    <StyledPaymentForm>
+    <StyledPaymentForm className="paymentForm">
       <h3>Данные для оплаты</h3>
-      {pay && <StyledPayment payment={pay} />}
+      {pay && <StyledPayment className="paymentSystem" payment={pay} />}
       <Input
         ref={ref}
         name="card_number"

@@ -6,6 +6,7 @@ import { addNewOrder } from "../shared/api";
 import { OrderCard } from "./OrderCard";
 import { useHistory } from "react-router-dom";
 import { Payment } from "./Payment";
+import { ContentContainer } from "./style";
 
 export const PizzaPreview = ({ newPizza, cheeses, vegs, meats }) => {
   const ingredients = useSelector(getIngredients);
@@ -50,12 +51,12 @@ export const PizzaPreview = ({ newPizza, cheeses, vegs, meats }) => {
   };
 
   return (
-    <>
+    <ContentContainer>
       <OrderCard
         orderData={newPizza}
         toppingsData={[...cheeses, ...vegs, ...meats]}
       />
       <Payment postOrder={onSubmit} price={newPizza.price} />
-    </>
+    </ContentContainer>
   );
 };

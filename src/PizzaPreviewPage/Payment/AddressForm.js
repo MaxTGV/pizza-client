@@ -22,7 +22,7 @@ const StyledAddressForm = styled.div`
 export const AddressForm = forwardRef(({ errors }, ref) => {
   return (
     <>
-      <StyledAddressForm>
+      <StyledAddressForm className="addressForm">
         <h3>Адрес доставки</h3>
         <Input
           ref={ref}

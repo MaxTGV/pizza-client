@@ -20,9 +20,9 @@ const StyledButton = styled.button`
     box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
   }
   &:disabled {
-    background-color: rgba(249, 249, 251, 1);
+    background-color: #E1E1ED;
     color: #8181b1;
-    opacity: 0.5;
+    opacity: 0.8;
   }
 `;
 
