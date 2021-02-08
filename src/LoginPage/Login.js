@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { Form } from "../shared/component/Form";
 import { Input } from "../shared/component/Input";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -8,6 +9,7 @@ import { Button } from "../shared/component/Button";
 import { HeaderContainer } from "./HeaderContainer";
 import { FormContainer } from "../shared/component/FormContainer";
 import { useAuth0 } from "@auth0/auth0-react";
+import { setLogin } from "./state/actions";
 
 const schema = yup.object().shape({
   login: yup.string().email("Некорректный формат").required("Введите email"),
@@ -21,10 +23,12 @@ export const Login = () => {
     resolver: yupResolver(schema),
   });
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const disabled = watch("password");
 
   const onSubmit = (data) => {
+    dispatch(setLogin(true));
     history.push("/");
   };
 

@@ -14,7 +14,7 @@ export const OrderCard = ({ orderData, toppingsData }) => {
       <OrderInfo />
       <OrderTitle>Ленивая Маргарита</OrderTitle>
       <OrderDescription orderData={orderData} toppingsData={toppingsData} />
-      <Line width/>
+      <Line width="100%"/>
       <OrderDetails price={price} />
     </StyledOrderCard>
   );
