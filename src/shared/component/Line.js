@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledLine = styled.hr`
-width: ${(props) => props.width ? props.width : '328px'};
+width: 100%;
 height: 0px;
 border: 1px ${(props) => props.solid ? "solid" : "dashed"} #e1e1ed;
 border-width: 0px 0px 1px 0px;

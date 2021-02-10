@@ -5,8 +5,6 @@ import { OrderDescription } from "./OrderDescription";
 import { OrderDetails } from "./OrderDetails";
 import { OrderInfo } from "./OrderInfo";
 
-
-
 export const OrderCard = ({ orderData, toppingsData }) => {
   const { price } = orderData;
   return (
@@ -14,7 +12,7 @@ export const OrderCard = ({ orderData, toppingsData }) => {
       <OrderInfo />
       <OrderTitle>Ленивая Маргарита</OrderTitle>
       <OrderDescription orderData={orderData} toppingsData={toppingsData} />
-      <Line width="100%"/>
+      <Line />
       <OrderDetails price={price} />
     </StyledOrderCard>
   );

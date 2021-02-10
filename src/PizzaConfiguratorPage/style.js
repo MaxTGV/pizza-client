@@ -36,7 +36,7 @@ export const ContentContainer = styled.div`
     }
     form {
       width: 500px;
-      height: 576px;
+      height: 668px;
       margin: 32px 16px 32px 32px;
       overflow-y: scroll;
       align-items: flex-start;
@@ -143,7 +143,7 @@ export const ContentContainer = styled.div`
     }
     form {
       width: 500px;
-      height: 630px;
+      height: 668px;
       margin: 32px 16px 32px 32px;
       overflow-y: scroll;
       align-items: flex-start;

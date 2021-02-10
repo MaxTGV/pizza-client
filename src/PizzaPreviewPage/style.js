@@ -14,7 +14,7 @@ export const ContentContainer = styled.div`
     
     & .orderCard {
       width: 37%;
-      margin: 0;
+      margin: 15px 0px;
       & hr {width: 100%}
     }
     & form {
@@ -60,7 +60,7 @@ export const StyledOrderCard = styled.div`
   height: max-content;
   box-shadow: 0px 8px 16px rgba(75, 75, 124, 0.05);
   border-radius: 16px;
-  margin: 0 auto;
+  margin: 15px auto;
 `;
 
 export const OrderTitle = styled.p`
@@ -141,7 +141,7 @@ export const StyledTotalOrderForm = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: 12px 16px;
-  width: 360px;
+  width: 100%;
   box-shadow: 0px -16px 32px rgba(75, 75, 124, 0.05),
     0px 0px 4px rgba(75, 75, 124, 0.1);
 `;
